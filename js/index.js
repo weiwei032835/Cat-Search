@@ -8,7 +8,8 @@ import {
     addSelectOrderLIstener,
     disableLoadMoreButton,
     addLoadMoreButtonListener,
-    enableLoadMoreButton
+    enableLoadMoreButton,
+    addCloseDrawerListener,
 } from "./dom.js";
 
 const pageSize = 12;//一次12筆
@@ -56,8 +57,11 @@ async function loadBreed() {
 }
 
 function addListeners() {
+
     addDropDownListener();
-    addCloseDropdownListener();
+    addCloseDropdownListener();//關閉側欄
+    addCloseDrawerListener();
+
     //排序順序
     addSelectOrderLIstener(async (e) => {
         //取得下拉選項

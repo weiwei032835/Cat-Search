@@ -10,8 +10,25 @@ export function renderCats(catList) {
         const col = i % columns.length;
         const item = catList[i];
         const card = createCard(item);
+        //側邊選單
+        card.addEventListener("click", e => {
+            setDrawerContent(item);
+            openDrawer();
+        })
         columns[col].appendChild(card);
     }
+}
+
+//側邊欄滑出
+export function openDrawer() {
+    const drawer = document.getElementById("drawer")
+    drawer.classList.add("open");
+}
+//點擊 更換資料
+export function setDrawerContent(item) {
+    const drawerImg = document.getElementById("drawer_image");
+    drawerImg.src = item.url;
+    const breedName = document.getElementById("")
 }
 
 /*下拉選單 顯示隱藏*/
@@ -49,16 +66,19 @@ export function renderOptions(breeds, handleBreedChange) {
         const optionContainer = document.createElement("div");
         optionContainer.className = "options";
 
+        //創建一個複選框元素
         const checkbox = document.createElement("input");
         checkbox.type = "checkbox";
         checkbox.id = `breed-${breed.name}`;
         checkbox.value = breed.name;
         checkbox.addEventListener("change", () => handleBreedChange(breed));
 
+        //創建一個標籤元素，顯示 breed 名稱
         const label = document.createElement("label");
         label.htmlFor = `breed-${breed.name}`;
         label.textContent = breed.name;
 
+        // 將複選框和標籤元素添加到選項容器中
         optionContainer.appendChild(checkbox);
         optionContainer.appendChild(label);
 
@@ -93,8 +113,25 @@ export function disableLoadMoreButton() {
     const loadMoreButton = document.getElementById("load_more");
     loadMoreButton.disabled = true;
 }
+
 //將讀取啟用
 export function enableLoadMoreButton() {
     const loadLoadMoreButton = document.getElementById("load_more");
     loadMoreButton.disabled = false;
+}
+
+
+//點擊側欄關閉畫面 點擊卡片以外
+export function addCloseDrawerListener() {
+    document.addEventListener("click", e => {
+        const drawer = document.getElementById("drawer")
+        //是否點擊側欄
+        const isClickedInsideCard = e.target.closest(".card");
+        const isClickedInsideDrawer = drawer.contains(e.target)
+
+        if (!isClickedInsideDrawer && !isClickedInsideCard) {
+            drawer.classList.remove("open");
+        }
+
+    })
 }
