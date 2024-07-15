@@ -83,3 +83,18 @@ export function addSelectOrderLIstener(handler) {
     const orderSelect = document.getElementById("order_select");
     orderSelect.addEventListener("change", handler);
 }
+//讀取 load 
+export function addLoadMoreButtonListener(handler) {
+    const loadMoreButton = document.getElementById("load_more");
+    loadMoreButton.addEventListener("click", handler);
+}
+//將讀取關掉
+export function disableLoadMoreButton() {
+    const loadMoreButton = document.getElementById("load_more");
+    loadMoreButton.disabled = true;
+}
+//將讀取啟用
+export function enableLoadMoreButton() {
+    const loadLoadMoreButton = document.getElementById("load_more");
+    loadMoreButton.disabled = false;
+}
