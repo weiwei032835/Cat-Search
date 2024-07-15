@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+  <link rel="shortcut icon" href="#" />
+  <title>貓咪塞選api</title>
+  <!-- css -->
+  <link rel="stylesheet" href="css/style.css" />
+  <script type="module" src="js/index.js" defer></script>
+</head>
+
+<body>
+  <!--container 開始-->
+  <div class="container">
+    <h1>Cat Search</h1>
+    <!--select_container 開始-->
+    <div class="select_container">
+      <!-- options 選項開始 -->
+      <div id="options" class="select_wrapper options">
+        <button id="dropdown_button" class="dropdown_button">請選擇品種</button>
+
+        <!--multi_select 開始-->
+        <div id="multi_select" class="multi_select hidden">
+          <!--options 開始-->
+          <div class="options">
+            <input type="checkbox">選項一
+            <label id="dropdown_label" class="dropdown_label"></label>
+          </div>
+          <!--options 結束-->
+
+          <!--options 開始-->
+          <div class="options">
+            <input type="checkbox"> 選項二
+            <label id="dropdown_label" class="dropdown_label"></label>
+          </div>
+          <!--options 結束-->
+
+        </div>
+        <!--multi_select 結束-->
+
+      </div>
+      <!-- options 選項結束 -->
+
+      <!--select_box 開始-->
+      <div class="select_wrapper">
+        <select class="order_select" id="order_select">
+          <option value="DESC">由新到舊</option>
+          <option value="ASC">由舊到新</option>
+          <option value="RAND">隨機</option>
+        </select>
+      </div>
+      <!--select_box 結束-->
+    </div>
+    <!--select_container 結束-->
+
+    <!--image_grid 圖輯  開始-->
+    <div class="image_grid" id="image_grid">
+      <!--col  開始-->
+      <div class="col" id="col1">
+        <div class="card">
+          <img src="https://cdn2.thecatapi.com/images/0SxW2SQ_S.jpg" alt="">
+          <p>your chocolate</p>
+        </div>
+      </div>
+      <!--col  結束-->
+      <!--col  開始-->
+      <div class="col" id="col2">
+        <!-- <div class="card">
+          <img src="https://cdn2.thecatapi.com/images/7_rjG2-pc.jpg" alt="">
+          <p>your chocolate</p>
+        </div> -->
+      </div>
+      <!--col  結束-->
+      <!--col  開始-->
+      <div class="col" id="col3">
+        <!-- <div class="card">
+          <img src="https://cdn2.thecatapi.com/images/7pCnjXd47.jpg" alt="">
+          <p>your chocolate</p>
+        </div> -->
+      </div>
+      <!--col  結束-->
+
+    </div>
+    <!--image_grid 圖輯 結束-->
+
+    <button id="load_more" class="load_more_button">load more..</button>
+
+    <!--drawer_sidebar  開始-->
+    <div class="drawer_sidebar" id="drawer">
+      <img src="https://cdn2.thecatapi.com/images/7pCnjXd47.jpg" id="drawer_image">
+
+      <!--txt 開始-->
+      <div class="txt">
+        <h3 class="name">ねこ</h3>
+        <span><img src="assets/location_icon.svg">新北市汐止區</span>
+      </div>
+      <!--txt 結束-->
+
+      <!--info 壽命/體重 開始-->
+      <div class="info">
+        <!--date 開始-->
+        <div class="date">
+          <p>12-17</p>
+          <span>壽命</span>
+        </div>
+        <!--date 結束-->
+        <!--weight 開始-->
+        <div class="weight">
+          <p>5-9</p>
+          <span>公斤</span>
+        </div>
+        <!--weight 結束-->
+      </div>
+      <!--info 壽命/體重 結束-->
+
+      <!--tag_box 標籤 開始-->
+      <div class="tag_box">
+        <p>性格</p>
+        <!--tag_list 開始-->
+        <div class="tag_list">
+          <span>親人</span>
+          <span>友善</span>
+          <span>活潑</span>
+        </div>
+        <!--tag_list 結束-->
+      </div>
+      <!--tag_box 標籤 結束-->
+
+      <!--stats_box 開始-->
+      <div class="stats_box">
+        <!--item 開始-->
+        <div class="stats_item">
+          <p>智力</p>
+          <!--bar 開始-->
+          <div class="bar">
+            <!--fill 開始-->
+            <div class="fill"> </div>
+            <!--fill 結束-->
+          </div>
+          <!--bar 結束-->
+        </div>
+        <!--item 結束-->
+        <!--item 開始-->
+        <div class="stats_item">
+          <p>親密度</p>
+          <!--bar 開始-->
+          <div class="bar">
+            <!--fill 開始-->
+            <div class="fill"> </div>
+            <!--fill 結束-->
+          </div>
+          <!--bar 結束-->
+        </div>
+        <!--item 結束-->
+        <!--item 開始-->
+        <div class="stats_item">
+          <p>活力</p>
+          <!--bar 開始-->
+          <div class="bar">
+            <!--fill 開始-->
+            <div class="fill"></div>
+            <!--fill 結束-->
+          </div>
+          <!--bar 結束-->
+        </div>
+        <!--item 結束-->
+      </div>
+      <!--stats_box 結束-->
+    </div>
+    <!--drawer_sidebar  結束-->
+
+  </div>
+  <!--container 結束-->
+
+</body>
+
+</html>
