@@ -1,4 +1,8 @@
-﻿import { createCard } from "./createElement.js";
+﻿import {
+    createCard,
+    createTempItem,
+    createDrawerStatsItem
+} from "./createElement.js";
 // dom 操作
 export function renderCats(catList) {
     const columns = [
@@ -24,12 +28,85 @@ export function openDrawer() {
     const drawer = document.getElementById("drawer")
     drawer.classList.add("open");
 }
-//點擊 更換資料
+//點擊 更換右側表單資料
 export function setDrawerContent(item) {
+    //圖片
     const drawerImg = document.getElementById("drawer_image");
     drawerImg.src = item.url;
-    const breedName = document.getElementById("")
+    //名字
+    const breedName = document.getElementById("drawer_name");
+    breedName.innerHTML = item.breeds[0].name;
+    //地標
+    const origin = document.getElementById("drawer_text");
+    origin.innerHTML = item.breeds[0].origin;
+    //壽命
+    const life = document.getElementById("drawer_life");
+    life.innerHTML = item.breeds[0].weight.metric;
+    //性格分布
+    const temperament = document.getElementById("temperament");
+    temperament.innerHTML = "";
+    const temperamentList = item.breeds[0].temperament.split(",");
+    for (const temp of temperamentList) {
+        const tempItem = createTempItem(temp);
+        temperament.appendChild(tempItem);
+    }
 }
+
+const scoreListings = [
+    {
+        key: "intelligence",
+        displayName: "智力"
+    },
+    {
+        key: "affection_level",
+        displayName: "親密度"
+    },
+    {
+        key: "energy_level",
+        displayName: "活力"
+    },
+    {
+        key: "child_friendly",
+        displayName: "兒童友善"
+    },
+    {
+        key: "dog_friendly",
+        displayName: "親近狗狗"
+    },
+    {
+        key: "indoor",
+        displayName: "喜歡在家"
+    },
+    {
+        key: "health_issues",
+        displayName: "遺傳疾病"
+    },
+    {
+        key: "shedding_level",
+        displayName: "掉毛量"
+    },
+    {
+        key: "social_needs",
+        displayName: "社交需求"
+    },
+    {
+        key: "stranger_friendly",
+        displayName: "陌生人友善"
+    },
+    {
+        key: "rare",
+        displayName: "稀有度"
+    }
+];
+
+const drawerStats = document.getElementById("drawer_state");
+drawerStats.innerHTML = "";
+
+for (const { key, displayName } of scoreListings) {
+    const statsItem = createDrawerStatsItem(displayName, item.breed[0][key]);
+    drawerStats.appendChild(statsItem);
+}
+
 
 /*下拉選單 顯示隱藏*/
 export function addDropDownListener() {
@@ -56,7 +133,7 @@ export function addCloseDropdownListener() {
         }
     });
 }
-
+//下拉品種渲染
 export function renderOptions(breeds, handleBreedChange) {
     /*把品種資料 用JS跑*/
     const multiSelectContainer = document.getElementById("multi_select");
@@ -81,7 +158,6 @@ export function renderOptions(breeds, handleBreedChange) {
         // 將複選框和標籤元素添加到選項容器中
         optionContainer.appendChild(checkbox);
         optionContainer.appendChild(label);
-
         multiSelectContainer.appendChild(optionContainer);
     });
 }

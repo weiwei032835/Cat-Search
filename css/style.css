@@ -56,7 +56,7 @@ h1{font-size: 32px; font-weight: 500; color: #332626;}
 /*標籤性格 tag ================================*/
 .drawer_sidebar .tag_box{ padding:10px; }
 .drawer_sidebar .tag_box p{font-size: 14px;font-weight:bolder;}
-.drawer_sidebar .tag_box .tag_list span{ font-size:12px;  padding:4px 8px; border-radius:4px; background-color:#efedff; color:#2e1cc4;}
+.drawer_sidebar .tag_box .tag_list span{ display: inline-block; font-size:12px; border-radius:4px; margin: 5px 0 0 5px; padding: 10px; background-color:#efedff; color:#2e1cc4;}
 
 /*長條性格 tag ================================*/
 .drawer_sidebar .stats_box{ } 
@@ -64,4 +64,4 @@ h1{font-size: 32px; font-weight: 500; color: #332626;}
 
 .drawer_sidebar .stats_box p{font-size: 14px; font-weight: 900;}
 .drawer_sidebar .stats_box .bar{width: 204px; height:10px; border-radius:20px; border: 1px solid #7c7c7c;}
-.drawer_sidebar .stats_box .bar .fill{width: 50%; height: 10px; border-radius:20px; position: relative; bottom:1px; right: 1px;  background: linear-gradient(270deg,#2e1cc4 4.58%,#8846db 100%);}
+.drawer_sidebar .stats_box .bar .fill{width: 50%; height: 10px; border-radius:20px; position: relative; bottom:1px; right: 1px;background: linear-gradient(270deg,#2e1cc4 4.58%,#8846db 100%);}

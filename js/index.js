@@ -18,7 +18,7 @@ let page = 1;
 let selectedOptions = [];
 const catList = [];
 
-
+//載入
 async function loadCats(limit, page, order, breedIds = []) {
     //  api抓貓資料
     const list = await fetchCats(limit, page, order, breedIds);
@@ -33,6 +33,7 @@ async function loadCats(limit, page, order, breedIds = []) {
     }
     return true;
 }
+
 //清空和塞選資料
 async function handleBreedChange(e) {
     const changedOption = e.target;
@@ -56,11 +57,11 @@ async function loadBreed() {
     renderOptions(breeds, handleBreedChange);
 }
 
+//監聽事件
 function addListeners() {
-
-    addDropDownListener();
+    addDropDownListener();//下拉選單
     addCloseDropdownListener();//關閉側欄
-    addCloseDrawerListener();
+    addCloseDrawerListener();//關閉側欄
 
     //排序順序
     addSelectOrderLIstener(async (e) => {
@@ -75,6 +76,7 @@ function addListeners() {
         }
     });
 
+    //更多LoadMore按鈕載入
     addLoadMoreButtonListener(async () => {
         const hasNextPage = await loadCats(pageSize, page, order, selectedOptions);
         if (hasNextPage) {
@@ -90,6 +92,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     if (hasNextPage) {
         page++;
     }
-    addListeners();//相關元素添加事件監聽器
+    addListeners();//相關元素添加事件監聽
 });
 
