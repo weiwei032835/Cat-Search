@@ -31,12 +31,16 @@ export function createDrawerStatsItem(displayName, score) {
     statsItem.className = "stats_item";
     //字
     const itemTitle = document.createElement("span");
-    itemTitle.className = "item__title";
+    itemTitle.className = "item_title";
     itemTitle.innerHTML = `${displayName}:`;
-    //bar
+    //bar 
     const bar = document.createElement("div");
+    bar.className = "bar";
+    //fill
+    const fill = document.createElement("div");
     fill.className = "fill";
     fill.style.width = `${score * 20}%`;
+
     bar.appendChild(fill);
     statsItem.appendChild(itemTitle);
     statsItem.appendChild(bar);
